@@ -9,7 +9,7 @@ class UserViewSet(viewsets.ViewSet):
         """List all users."""
         users = UserStorage.get_all_users()
         serializer = UserSerializer(users, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
         """Create a new user."""
@@ -26,7 +26,7 @@ class UserViewSet(viewsets.ViewSet):
         user = UserStorage.get_user(pk)
         if user:
             serializer = UserSerializer(user)
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     def update(self, request, pk=None):
@@ -35,7 +35,7 @@ class UserViewSet(viewsets.ViewSet):
         user = UserStorage.update_user(pk, user_data)
         if user:
             serializer = UserSerializer(user)
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, pk=None):
