@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import UserSerializer
-from .storage import UserStorage  # Ensure this is imported correctly
+from .storage import UserStorage  
 
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):

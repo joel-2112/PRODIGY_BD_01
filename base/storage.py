@@ -17,7 +17,7 @@ class UserStorage:
     @classmethod
     def create_user(cls, user_data):
         """Create a new user and store it in memory."""
-        user_id = uuid.uuid4()  # Generate a unique UUID for the user
+        user_id = uuid.uuid4()  
         user = {
             'id': user_id,
             'name': user_data['name'],
