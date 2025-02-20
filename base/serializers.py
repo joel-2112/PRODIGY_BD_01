@@ -5,7 +5,7 @@ class UserSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
     email = serializers.EmailField()
     age = serializers.IntegerField()
-
+    
     def validate_name(self, value):
         if not value.isalpha():
             raise serializers.ValidationError("Name must contain only alphabetic characters.")
@@ -18,5 +18,5 @@ class UserSerializer(serializers.Serializer):
 
     def validate_age(self, value):
         if value < 0:
-            raise serializers.ValidationError("No one can have a negative age.")
+            raise serializers.ValidationError("This person is not born")
         return value
